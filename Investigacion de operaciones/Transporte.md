@@ -124,3 +124,4 @@ Supongamos que tenemos 3 orígenes y 4 destinos con las siguientes disponibilida
 
 #### Repetir hasta que todas las demandas y ofertas se satisfagan.
 
+### este documento no ha sido terminado
