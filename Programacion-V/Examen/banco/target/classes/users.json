@@ -1,0 +1,26 @@
+{
+    "usuarios": [
+      {
+        "id": 1,
+        "nombre": "Juan Pérez",
+        "password": "1234",
+        "saldo": 1000.0,
+        "tipo": "normal"
+      },
+      {
+        "id": 2,
+        "nombre": "María López",
+        "password": "1234",
+        "saldo": 2500.0,
+        "tipo": "normal"
+      },
+      {
+        "id": 3,
+        "nombre": "Carlos Admin",
+        "password": "1234",
+        "saldo": 0.0,
+        "tipo": "admin"
+      }
+    ]
+  }
+  
