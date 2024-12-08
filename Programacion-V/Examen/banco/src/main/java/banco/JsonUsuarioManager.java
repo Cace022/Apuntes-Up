@@ -7,7 +7,8 @@ import java.util.List;
 
 public class JsonUsuarioManager {
 
-    private static final String FILE_PATH = "usuarios.json";  // Ruta al archivo JSON
+    private static final String FILE_PATH = "C:/Users/corre/Documents/Apuntes-Up/Programacion-V/Examen/banco/src/main/resources/users.json";
+
     private Gson gson;
 
     public JsonUsuarioManager() {
@@ -23,12 +24,14 @@ public class JsonUsuarioManager {
     public List<Usuario> leerUsuarios() throws IOException {
         File file = new File(FILE_PATH);
         if (!file.exists()) {
+            System.out.println("Archivo JSON no encontrado en la ruta: " + FILE_PATH);
             return List.of();  // Si el archivo no existe, devolvemos una lista vacía
         }
 
         // Leer el contenido del archivo y convertirlo a un objeto UsuarioContainer
         String jsonContent = new String(Files.readAllBytes(file.toPath()));
         UsuarioContainer container = gson.fromJson(jsonContent, UsuarioContainer.class);
+        System.out.println("Usuarios leídos del archivo JSON: " + container.usuarios);
         return container.usuarios;  // Devolver la lista de usuarios
     }
 

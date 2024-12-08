@@ -101,7 +101,7 @@ public class ClienteInterfaz {
                     in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                     // Enviar mensaje de login
-                    out.println("LOGIN " + nombre + " " + password);
+                    out.println("LOGIN \"" + nombre + "\" " + password);
                     String response = in.readLine();
                     mensajeArea.setText(response);
                     if (response.contains("Autenticación exitosa")) {

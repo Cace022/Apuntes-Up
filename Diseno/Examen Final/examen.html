@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovación en Tecnología Biónica</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <style>
+        body {
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco */
+        }
+        .gradient-text {
+            background: linear-gradient(to bottom, #00f260, #0575e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        a {
+            color: #fff;
+        }
+        a:hover {
+            color: #00f260;
+        }
+        .flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+        .flex-container > div {
+            padding: 1rem;
+        }
+        .separator {
+            border-left: 2px solid #fff;
+            height: 100px;
+            margin: 0 2rem;
+        }
+        .title-container {
+            flex: 2; /* Ajustar el tamaño del contenedor del título */
+        }
+        .text-container {
+            flex: 3; /* Ajustar el tamaño del contenedor del texto */
+        }
+        .models-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+        .model-viewer {
+            width: 45%;
+            height: 400px;
+        }
+        .carousel .slick-slide {
+            background: #fff;
+            color: #000;
+            padding: 20px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0 10px; /* Espacio a los lados */
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black p-4 shadow">
+        <div class="container mx-auto flex justify-center items-center">
+            <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="navbar-menu">
+                <ul class="lg:flex items-center justify-center text-base text-white pt-4 lg:pt-0 space-x-36">
+                    <li><a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-green-500">Inicio</a></li>
+                    <li><a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-green-500">Diseños</a></li>
+                    <li><a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-green-500">Proyectos</a></li>
+                </ul>
+            </div>
+            <div class="block lg:hidden">
+                <button id="navbar-toggle" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Título y párrafo explicativo -->
+    <div class="container mx-auto text-center py-64">
+        <h1 class="text-5xl font-bold"><span class="gradient-text">Examen</span> Final de Diseño <span class="gradient-text">Asistido</span></h1>
+        <p class="text-lg mt-4">Este examen muestra el esfuerzo y dedicación puestos en cada proyecto, destacando la creatividad y habilidades adquiridas a lo largo del semestre.</p>
+    </div>
+
+    <!-- Segunda parte -->
+    <div class="container mx-auto flex-container">
+        <div class="title-container">
+            <h1 class="text-4xl font-bold">Esta es la <span class="gradient-text">Innovación</span> en <span class="gradient-text">Tecnología</span> Biónica</h1>
+        </div>
+        <div class="separator"></div>
+        <div class="text-container">
+            <p class="text-lg max-w-2xl">La tecnología biónica combina ingeniería y biología para crear soluciones innovadoras que mejoran la calidad de vida. Prótesis avanzadas, interfaces cerebro-máquina y sensores biomiméticos destacan entre sus desarrollos, mostrando el impacto de la ciencia en la medicina y la robótica. Esta área refleja cómo la tecnología puede imitar y superar las capacidades humanas, transformando el futuro.</p>
+        </div>
+    </div>
+
+    <!-- Modelos 3D -->
+    <div class="container mx-auto models-container">
+        <model-viewer 
+            src="exo.glb" 
+            alt="Modelo 3D de diseño" 
+            camera-controls 
+            auto-rotate 
+            exposure="0.7" 
+            environment-image="neutral"
+            shadow-intensity="1"
+            shadow-softness="1"
+            background-color="#000"
+            class="model-viewer"> 
+        </model-viewer>
+        <model-viewer 
+            src="protesiscanina.glb" 
+            alt="Modelo 3D de prótesis canina" 
+            camera-controls 
+            auto-rotate 
+            exposure="0.7" 
+            environment-image="neutral"
+            shadow-intensity="1"
+            shadow-softness="1"
+            background-color="#000"
+            class="model-viewer"> 
+        </model-viewer>
+        <model-viewer 
+            src="brazobiomecanico.glb" 
+            alt="Modelo 3D de brazo biomecánico" 
+            camera-controls 
+            auto-rotate 
+            exposure="0.7" 
+            environment-image="neutral"
+            shadow-intensity="1"
+            shadow-softness="1"
+            background-color="#000"
+            class="model-viewer"> 
+        </model-viewer>
+    </div>
+
+    <!-- Carrusel -->
+<div class="container mx-auto py-12">
+    <div class="carousel">
+        <div>
+            <h3 class="text-2xl font-bold">Dato 1</h3>
+            <p class="text-lg py-16">La tecnología biónica ha avanzado significativamente, permitiendo la creación de prótesis que imitan las funciones naturales del cuerpo humano, mejorando la calidad de vida de los usuarios.</p>
+        </div>
+        <div>
+            <h3 class="text-2xl font-bold">Dato 2</h3>
+            <p class="text-lg py-16">Los exoesqueletos biónicos ayudan a las personas con discapacidades severas a recuperar la movilidad y mejorar su independencia, proporcionando apoyo físico para tareas cotidianas.</p>
+        </div>
+        <div>
+            <h3 class="text-2xl font-bold">Dato 3</h3>
+            <p class="text-lg py-16">La biomimética se basa en estudiar la naturaleza para crear soluciones tecnológicas innovadoras. Utiliza principios naturales para mejorar el diseño de dispositivos y sistemas sostenibles.</p>
+        </div>
+        <div>
+            <h3 class="text-2xl font-bold">Dato 4</h3>
+            <p class="text-lg py-16">Los implantes cocleares son dispositivos electrónicos que permiten a las personas con pérdida auditiva severa recuperar la capacidad de oír, mejorando su comunicación y calidad de vida.</p>
+        </div>
+        <div>
+            <h3 class="text-2xl font-bold">Dato 5</h3>
+            <p class="text-lg py-16">Las interfaces cerebro-computadora permiten la comunicación directa entre el cerebro humano y los dispositivos electrónicos, facilitando el control de dispositivos mediante señales cerebrales.</p>
+        </div>
+        <div>
+            <h3 class="text-2xl font-bold">Dato 6</h3>
+            <p class="text-lg py-16">La tecnología biónica está revolucionando la medicina moderna, ofreciendo nuevas oportunidades para el tratamiento de enfermedades y la mejora de la calidad de vida de pacientes alrededor del mundo.</p>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- Nueva sección: Biomimética y nuevos diseños 3D -->
+    <div class="container mx-auto text-center py-6">
+        <div class="text-container">
+            <p class="text-lg max-w-2xl mx-auto">La biomimética es una disciplina que estudia la naturaleza como fuente de inspiración para el diseño de soluciones tecnológicas innovadoras. Se basa en la observación y el análisis de las estructuras, procesos y sistemas biológicos para desarrollar tecnologías que imiten o mejoren las funciones naturales.</p>
+        </div>
+        <div class="models-container mt-8 py-12">
+            <model-viewer 
+                src="gripperflexible.glb" 
+                alt="Modelo 3D de gripper flexible" 
+                camera-controls 
+                auto-rotate 
+                exposure="0.5" 
+                environment-image="neutral"
+                shadow-intensity="1"
+                shadow-softness="1"
+                background-color="#000"
+                class="model-viewer mx-auto"> 
+            </model-viewer>
+            <model-viewer 
+                src="gripperadaptativo.glb" 
+                alt="Modelo 3D de gripper adaptativo" 
+                camera-controls 
+                auto-rotate 
+                exposure="0.5" 
+                environment-image="neutral"
+                shadow-intensity="1"
+                shadow-softness="1"
+                background-color="#000"
+                class="model-viewer mx-auto"> 
+            </model-viewer>
+        </div>
+    </div>
+
+   <!-- Nueva sección: Anatomía y Fisiología -->
+<div class="container mx-auto flex-container py-12">
+    <div class="text-container">
+        <p class="text-lg max-w-2xl">La anatomía y fisiología son disciplinas fundamentales para el desarrollo de tecnologías biónicas. La anatomía se enfoca en la estructura de los órganos y sistemas del cuerpo humano, mientras que la fisiología estudia sus funciones y cómo interactúan entre sí. Comprender estas áreas es esencial para diseñar dispositivos biónicos que puedan integrarse eficazmente con el cuerpo humano, mejorando la calidad de vida y restaurando funciones perdidas.</p>
+    </div>
+    <div class="separator"></div>
+    <div class="title-container">
+        <h1 class="text-4xl font-bold">Explorando la <span class="gradient-text">Anatomía</span> y <span class="gradient-text">Fisiología</span></h1>
+    </div>
+</div>
+
+<!-- Modelos 3D: Cover, Dedos y Mano -->
+<div class="container mx-auto models-container py-12">
+    <model-viewer 
+        src="mano.glb" 
+        alt="Modelo 3D de cover" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.5" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer mx-auto"> 
+    </model-viewer>
+    <model-viewer 
+        src="dedos.glb" 
+        alt="Modelo 3D de dedos" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer mx-auto"> 
+    </model-viewer>
+    <model-viewer 
+        src="animatronico.glb" 
+        alt="Modelo 3D de mano" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer mx-auto"> 
+    </model-viewer>
+</div>
+
+<!-- Nuevo: Biomimética y diseños 3D -->
+<div class="container mx-auto text-center py-6">
+    <div class="text-container">
+        <p class="text-lg max-w-2xl mx-auto">En los casos clínicos relacionados con las piernas, la biomimética se aplica en prótesis y exoesqueletos para mejorar la movilidad. Las prótesis de pierna avanzadas imitan el movimiento natural de la extremidad, utilizando materiales flexibles y resistentes. Además, los exoesqueletos permiten a las personas con parálisis o debilidad muscular recuperar movilidad al replicar los movimientos humanos. Estas innovaciones mejoran la calidad de vida, restaurando funciones motoras de manera eficiente, siguiendo principios biológicos observados en la naturaleza.</p>
+    </div>
+    <div class="models-container mt-8 py-12">
+        <model-viewer 
+            src="cover.glb" 
+            alt="Modelo 3D de gripper flexible" 
+            camera-controls 
+            auto-rotate 
+            exposure="0.5" 
+            environment-image="neutral"
+            shadow-intensity="1"
+            shadow-softness="1"
+            background-color="#000"
+            class="model-viewer mx-auto"> 
+        </model-viewer>
+    </div>
+</div>
+
+<!-- Actividades del Semestre -->
+<div class="container mx-auto flex-container">
+    <div class="title-container">
+        <h1 class="text-4xl font-bold">Actividades del <span class="gradient-text">Semestre</span></h1>
+    </div>
+    <div class="separator"></div>
+    <div class="text-container">
+        <p class="text-lg max-w-2xl">En esta sección se presentan los diseños realizados durante el semestre. Cada modelo 3D refleja el esfuerzo, la creatividad y las habilidades adquiridas a lo largo del curso.</p>
+    </div>
+</div>
+
+<!-- Modelos 3D -->
+<div class="container mx-auto models-container">
+    <model-viewer 
+        src="comparación.glb" 
+        alt="Diseño 1" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer"> 
+    </model-viewer>
+    <model-viewer 
+        src="taj.glb" 
+        alt="Diseño 2" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer"> 
+    </model-viewer>
+    <model-viewer 
+        src="parcial.glb" 
+        alt="Diseño 3" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer"> 
+    </model-viewer>
+    <model-viewer 
+        src="monedas.glb" 
+        alt="Diseño 4" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer"> 
+    </model-viewer>
+</div>
+<div class="container mx-auto text-center py-6">
+    <p class="text-lg max-w-2xl mx-auto">Esta sección incluye un diseño comparativo con una plantilla de Google, el icónico Taj Mahal, el primer parcial del curso y un diseño de monedas. El diseño comparativo muestra cómo se puede mejorar un diseño existente utilizando nuevas técnicas. El Taj Mahal es un ejemplo de arquitectura detallada y precisa. El primer parcial refleja el conocimiento adquirido en la primera mitad del curso, y el diseño de monedas muestra la aplicación de técnicas de modelado en objetos cotidianos.</p>
+</div>
+<div class="container mx-auto models-container mt-8">
+    <model-viewer 
+        src="escudos.glb" 
+        alt="Diseño 5" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer"> 
+    </model-viewer>
+    <model-viewer 
+        src="escudosd.glb" 
+        alt="Diseño 6" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer"> 
+    </model-viewer>
+    <model-viewer 
+        src="escudosp.glb" 
+        alt="Diseño 7" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer"> 
+    </model-viewer>
+    <model-viewer 
+        src="drone.glb" 
+        alt="Diseño 8" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer"> 
+    </model-viewer>
+</div>
+<div class="container mx-auto text-center py-6">
+    <p class="text-lg max-w-2xl mx-auto">En esta sección se presentan diseños de escudos deportivos, escudos de guerra, un escudo personal y un drone. Los escudos deportivos representan la identidad y el espíritu de los equipos. Los escudos de guerra muestran la evolución de la protección en combate. El escudo personal es un diseño único que refleja la individualidad del creador. El drone es un ejemplo de tecnología avanzada aplicada en el modelado 3D.</p>
+</div>
+<div class="container mx-auto models-container mt-8">
+    <model-viewer 
+        src="satelite v1.glb" 
+        alt="Diseño 9" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer"> 
+    </model-viewer>
+    <model-viewer 
+        src="ek.glb" 
+        alt="Diseño 10" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer"> 
+    </model-viewer>
+</div>
+<div class="container mx-auto text-center py-6">
+    <p class="text-lg max-w-2xl mx-auto">Aquí se muestran un satélite y un sistema de enfriamiento con agua EK. El satélite es un ejemplo de cómo el modelado 3D puede ser utilizado en la industria aeroespacial para diseñar y visualizar componentes complejos. El sistema de enfriamiento con agua EK muestra la aplicación de técnicas de modelado en la ingeniería de sistemas de refrigeración avanzados, esenciales para mantener el rendimiento óptimo de los componentes electrónicos.</p>
+</div>
+<div class="container mx-auto models-container mt-8">
+    <model-viewer 
+        src="rtx.glb" 
+        alt="Diseño 11" 
+        camera-controls 
+        auto-rotate 
+        exposure="0.7" 
+        environment-image="neutral"
+        shadow-intensity="1"
+        shadow-softness="1"
+        background-color="#000"
+        class="model-viewer mx-auto"> 
+    </model-viewer>
+</div>
+<div class="container mx-auto text-center py-6">
+    <p class="text-lg max-w-2xl mx-auto">El último diseño es una tarjeta gráfica RTX 3090. Este modelo muestra el detalle y la precisión necesarios para diseñar componentes de hardware de alta tecnología. La RTX 3090 es conocida por su rendimiento excepcional en aplicaciones de gráficos y computación, y este modelo 3D destaca las complejidades de su diseño.</p>
+</div>
+
+
+
+
+    <script>
+        $(document).ready(function(){
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 3000
+            });
+        });
+    </script>
+</body>
+</html>
