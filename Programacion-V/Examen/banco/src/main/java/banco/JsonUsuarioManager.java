@@ -12,7 +12,7 @@ public class JsonUsuarioManager {
     private Gson gson;
 
     public JsonUsuarioManager() {
-        gson = new Gson();
+        gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
     // Clase contenedora para reflejar la estructura del JSON
