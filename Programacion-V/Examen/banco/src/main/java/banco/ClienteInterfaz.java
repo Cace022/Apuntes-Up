@@ -15,6 +15,8 @@ public class ClienteInterfaz {
     private static BufferedReader in;
     private static JTextArea mensajeArea;
     private static JTextField inputField;
+    private static String operacionActual = "";
+    private static String destinatario = "";
 
     public static void main(String[] args) {
         try {
@@ -237,14 +239,55 @@ public class ClienteInterfaz {
         };
 
         // Configurar botones para habilitar el teclado
-        depositarButton.addActionListener(enableKeyboard);
-        retirarButton.addActionListener(enableKeyboard);
-        transferirButton.addActionListener(enableKeyboard);
+        depositarButton.addActionListener(e -> {
+            operacionActual = "DEPOSITO";
+            inputField.setText("");
+            mensajeArea.append("Ingrese el monto para depositar.\n");
+            enableKeyboard.actionPerformed(e);
+        });
 
-        // "OK" deshabilita el teclado nuevamente
+        retirarButton.addActionListener(e -> {
+            operacionActual = "RETIRO";
+            inputField.setText("");
+            mensajeArea.append("Ingrese el monto para retirar.\n");
+            enableKeyboard.actionPerformed(e);
+        });
+
+        transferirButton.addActionListener(e -> {
+            operacionActual = "TRANSFERENCIA";
+            destinatario = JOptionPane.showInputDialog(frame, "Ingrese el nombre del destinatario:");
+            inputField.setText("");
+            mensajeArea.append("Ingrese el monto para transferir.\n");
+            enableKeyboard.actionPerformed(e);
+        });
+
+        // "OK" deshabilita el teclado nuevamente y realiza la operación actual
         enterButton.addActionListener(e -> {
             disableKeyboard.actionPerformed(e);
+            String monto = inputField.getText();
+            String nombre = nombreField.getText();
+            switch (operacionActual) {
+                case "DEPOSITO":
+                    out.println("DEPOSITO \"" + nombre + "\" " + monto);
+                    break;
+                case "RETIRO":
+                    out.println("RETIRO \"" + nombre + "\" " + monto);
+                    break;
+                case "TRANSFERENCIA":
+                    out.println("TRANSFERENCIA \"" + nombre + "\" \"" + destinatario + "\" " + monto);
+                    break;
+                default:
+                    mensajeArea.append("Operación no reconocida.\n");
+                    break;
+            }
+            try {
+                String response = in.readLine();
+                mensajeArea.append(response + "\n");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
             inputField.setText(""); // Limpia el campo tras procesar
+            operacionActual = ""; // Resetea la operación actual
         });
 
         // Acciones para botones
@@ -256,55 +299,6 @@ public class ClienteInterfaz {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-        });
-
-        depositarButton.addActionListener(e -> {
-            inputField.setText("");
-            mensajeArea.append("Ingrese el monto para depositar.\n");
-            enterButton.addActionListener(ev -> {
-                String monto = inputField.getText();
-                out.println("DEPOSITO \"" + nombreField.getText() + "\" " + monto);
-                try {
-                    String response = in.readLine();
-                    mensajeArea.append(response + "\n");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                inputField.setText(""); // Limpia el campo tras procesar
-            });
-        });
-
-        retirarButton.addActionListener(e -> {
-            inputField.setText("");
-            mensajeArea.append("Ingrese el monto para retirar.\n");
-            enterButton.addActionListener(ev -> {
-                String monto = inputField.getText();
-                out.println("RETIRO \"" + nombreField.getText() + "\" " + monto);
-                try {
-                    String response = in.readLine();
-                    mensajeArea.append(response + "\n");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                inputField.setText(""); // Limpia el campo tras procesar
-            });
-        });
-
-        transferirButton.addActionListener(e -> {
-            String destinatario = JOptionPane.showInputDialog(frame, "Ingrese el nombre del destinatario:");
-            inputField.setText("");
-            mensajeArea.append("Ingrese el monto para transferir.\n");
-            enterButton.addActionListener(ev -> {
-                String monto = inputField.getText();
-                out.println("TRANSFERENCIA \"" + nombreField.getText() + "\" \"" + destinatario + "\" " + monto);
-                try {
-                    String response = in.readLine();
-                    mensajeArea.append(response + "\n");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                inputField.setText(""); // Limpia el campo tras procesar
-            });
         });
     }
 

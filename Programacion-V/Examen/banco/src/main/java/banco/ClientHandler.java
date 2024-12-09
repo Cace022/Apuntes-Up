@@ -144,14 +144,16 @@ public class ClientHandler implements Runnable {
         String regex = "TRANSFERENCIA\\s+\"([\\p{L}\\p{M}\\s]+)\"\\s+\"([\\p{L}\\p{M}\\s]+)\"\\s+(\\d+(\\.\\d{1,2})?)";
         java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(regex);
         java.util.regex.Matcher matcher = pattern.matcher(message);
-
+    
+        System.out.println("Mensaje de transferencia recibido: " + message); // Línea de depuración
+    
         if (matcher.matches()) {
             String nombreOrigen = matcher.group(1);
             String nombreDestino = matcher.group(2);
             double monto = Double.parseDouble(matcher.group(3));
             Usuario origen = buscarUsuario(nombreOrigen);
             Usuario destino = buscarUsuario(nombreDestino);
-
+    
             if (origen != null && destino != null) {
                 OperacionTransferencia operacionTransferencia = new OperacionTransferencia();
                 operacionTransferencia.transferir(origen, destino, monto);
